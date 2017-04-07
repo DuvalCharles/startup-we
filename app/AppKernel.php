@@ -18,8 +18,8 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new SUWE\UserBundle\UserBundle(),
-            new SUWE\CoreBundle\CoreBundle(),
+            new SUWE\UserBundle\SUWEUserBundle(),
+            new SUWE\CoreBundle\SUWECoreBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
