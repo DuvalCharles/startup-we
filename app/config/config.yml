@@ -78,13 +78,3 @@ fos_user:
     from_email:
         address: test@gmail.com
         sender_name: StartUp-WE
-    registration:
-      confirmation:
-        enabled: true
-        template : FOSUserBundle:Registration:registrationConfirm.email.twig
-    resetting:
-      email:
-        template: FOSUserBundle:Resetting:resetPassword.email.twig
-    profile:
-      form:
-        type: SUWE\UserBundle\Form\Type\ProfileEditType
