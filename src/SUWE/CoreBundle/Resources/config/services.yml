@@ -1,0 +1,4 @@
+services:
+#    suwe_core.example:
+#        class: SUWE\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
