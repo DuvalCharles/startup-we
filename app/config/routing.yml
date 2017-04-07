@@ -5,10 +5,10 @@ suwe_core:
 
 #API
 
-suwe_user_api:
-    prefix: api/user
-    resource: "@SUWEUserBundle/Controller/UserApiController.php"
-    type: rest
+#suwe_user_api:
+#    prefix: api/user
+#    resource: "@SUWEUserBundle/Controller/UserApiController.php"
+#    type: rest
 
 #FOSUser routes
 fos_user_security:
