@@ -13,43 +13,45 @@
 </head>
 <body>
 
-{#HEADER#}
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">LOGO</a>
+<div class="container">
+    {#HEADER#}
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">LOGO</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ path('home_page') }}">Accueil</a>
-            </li>
-            {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('home_page') }}">Accueil</a>
                 </li>
-            {% else %}
+                {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    </li>
+                {% else %}
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Inscription</a>
-                </li>
-            {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                    </li>
+                {% endif %}
 
-        </ul>
-    </div>
-</nav>
-
-{% block body %}
+            </ul>
+        </div>
+    </nav>
 
 
-{% endblock %}
+    {% block body %}
 
+
+    {% endblock %}
+</div>
 
 {% block javascripts %}
     <script type="application/javascript" src="{{ asset('assets/js/vue.min.js') }}"></script>
