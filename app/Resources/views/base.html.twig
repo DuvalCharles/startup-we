@@ -20,17 +20,13 @@
             aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">LOGO</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil</a>
+                <a class="nav-link" href="{{ path('home_page') }}">Accueil</a>
             </li>
-
-
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
             {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
@@ -44,7 +40,8 @@
                     <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Inscription</a>
                 </li>
             {% endif %}
-        </form>
+
+        </ul>
     </div>
 </nav>
 
