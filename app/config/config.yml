@@ -77,3 +77,46 @@ fos_user:
     from_email:
         address: test@gmail.com
         sender_name: StartUp-WE
+
+
+#FOSRestBundle
+fos_rest:
+    body_listener: true
+    format_listener: true
+    param_fetcher_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            jsonp: true
+            json: true
+            xml: true
+            rss: false
+        mime_types:
+            json:  ['application/json', 'application/x-json']
+            jpg: ['image/jpeg']
+            png: ['image/png']
+        jsonp_handler: ~
+    routing_loader:
+        default_format: json
+        include_format: false
+    format_listener:
+        rules:
+            - { path: ^/, priorities: [ json, jsonp, xml], fallback_format: ~, prefer_extension: true }
+        exception:
+            enabled: true
+
+##Nelmio Cors
+nelmio_cors:
+    paths:
+        '^/api/':
+            allow_origin: "*"
+            allow_headers: "*"
+            allow_methods: ["POST", "PUT", "GET", "DELETE", "OPTIONS"]
+            max_age :       3600
+
+#JMS Serializer
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "Y-m-d\\TH:i:sP"
+            default_timezone: "UTC"

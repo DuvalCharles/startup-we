@@ -16,7 +16,7 @@ class UserApiController extends Controller
      * @return Users
      *
      * @Rest\View(statusCode=Response::HTTP_OK, serializerGroups={"user"})
-     * @Rest\Get('users')
+     * @Rest\Get("users")
      */
     public function cgetUsersAction(Request $request)
     {
