@@ -8,6 +8,16 @@
     {{ form_widget(form.username, {'attr' : {'class': 'form-control', 'placeholder':'jeanDeVannes'}}) }}
 </div>
 
+{#<div class="form-group">#}
+    {#{{ form_label(form.societe, "Société: ") }}#}
+    {#{{ form_widget(form.societe, {'attr' : {'class': 'form-control', 'placeholder':'LeBonCoin'}}) }}#}
+{#</div>#}
+
+{#<div class="form-group">#}
+    {#{{ form_label(form.age, "Age: ") }}#}
+    {#{{ form_widget(form.age, {'attr' : {'class': 'form-control', 'placeholder':'32'}}) }}#}
+{#</div>#}
+
 <div class="form-group">
     {{ form_label(form.email, "Email: ") }}
     {{ form_widget(form.email, {'attr' : {'class': 'form-control', 'placeholder':'jean@internet.com'}}) }}
@@ -24,6 +34,6 @@
 </div>
 
 <div>
-    <input type="submit" value="Valider"/>
+    <input class="btn btn-default" type="submit" value="Valider"/>
 </div>
 {{ form_end(form) }}

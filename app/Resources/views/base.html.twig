@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid p-0">
     {#HEADER#}
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -21,7 +21,7 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">LOGO</a>
+        <a class="navbar-brand" href="{{ path('home_page') }}">LOGO</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -46,12 +46,15 @@
         </div>
     </nav>
 
-
     {% block body %}
 
 
     {% endblock %}
 </div>
+
+<footer>
+    <a href="{{ path('annonceur_subscribe') }}"></a>
+</footer>
 
 {% block javascripts %}
     <script type="application/javascript" src="{{ asset('assets/js/vue.min.js') }}"></script>
