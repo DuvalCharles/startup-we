@@ -21,7 +21,7 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{{ path('home_page') }}">LOGO</a>
+        <a class="navbar-brand" href="#">LOGO</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -43,7 +43,12 @@
                         <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                        {% if app.request.get('_route') == "home_annonceur" %}
+                            <a class="nav-link"
+                               href="{{ path('fos_user_registration_register', {'annonceur':'true'}) }}">Inscription</a>
+                        {% else %}
+                            <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                        {% endif %}
                     </li>
                 {% endif %}
 
@@ -56,10 +61,6 @@
 
     {% endblock %}
 </div>
-
-<footer>
-    <a href="{{ path('annonceur_subscribe') }}"></a>
-</footer>
 
 {% block javascripts %}
     <script type="application/javascript" src="{{ asset('assets/js/vue.min.js') }}"></script>

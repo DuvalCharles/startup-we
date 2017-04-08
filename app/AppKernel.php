@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new SUWE\UserBundle\SUWEUserBundle(),
             new SUWE\CoreBundle\SUWECoreBundle(),
             new SUWE\SondageBundle\SUWESondageBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
