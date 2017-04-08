@@ -1,6 +1,219 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="jumbotron">
-        <h1>TIME TO KICK ASSES</h1>
+    <div id="sondage_form">
+        {{ form_start(form) }}
+        <div class="row justify-content-space-between">
+            <div class="col-12" v-show="part_1">
+                <h1>Création de sondage</h1>
+                <hr>
+                <div class="row form-group">
+                    <div class="col-12">
+                        <label> {{ form_label(form.title) }}</label>
+                        {{ form_widget(form.title, {'attr': {'v-model' : 'title', 'maxlength':'50', 'value': null}}) }}
+                    </div>
+                    <div class="col-6">
+                        <label> {{ form_label(form.nbQuestions) }}</label>
+                        {{ form_widget(form.nbQuestions) }}
+                    </div>
+                    <div class="col-6">
+                        <label> {{ form_label(form.maxBudget) }}</label>
+                        {{ form_widget(form.maxBudget, {'attr': {'v-model' : 'maxBudget', 'value': null}}) }}
+                    </div>
+                    <div class="col-12">
+                        <h2>Cible</h2>
+                    </div>
+                    <div class="col-6">
+                        <label> {{ form_label(form.minAge) }}</label>
+                        {{ form_widget(form.minAge, {'attr': {'v-model' : 'minAge', 'value': null}}) }}
+                    </div>
+                    <div class="col-6">
+                        <label> {{ form_label(form.maxAge) }}</label>
+                        {{ form_widget(form.maxAge, {'attr': {'v-model' : 'maxAge', 'value': null}}) }}
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <h3>Départements</h3>
+                        <ul v-if="departementsSelected.length > 0">
+                            <li v-for="departement in departementsSelected">${departement}</li>
+                        </ul>
+                        <a class="btn btn-success" data-toggle="modal" data-target="#depModal">Selectionner
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <h3>Situation</h3>
+                        <ul v-if="situations.length > 0">
+                            <li v-for="situation in situationsSelected">${situation}</li>
+                        </ul>
+                        <a class="btn btn-success" data-toggle="modal" data-target="#situationModal">
+                            Selectionner
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <h3>Centre d'intérêt</h3>
+                        <ul v-if="hobbiesSelected.length > 0">
+                            <li v-for="hobby in hobbiesSelected">${hobby}</li>
+                        </ul>
+                        <a class="btn btn-success" data-toggle="modal" data-target="#hobbyModal">
+                            Selectionner
+                        </a>
+                    </div>
+                    <div class="d-none">
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <button class="btn btn-success">Confirmer et Créer les questions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#MODAL TIME#}
+
+        {#Modal département#}
+        <div class="modal fade" id="depModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-3" v-for="departement in departements">
+                                <label for="">
+                                    ${departement}
+                                    <input type="checkbox" aria-label="..." @Click="addStuff('dep', departement)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#Modal situation pro#}
+        <div class="modal fade" id="situationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-4" v-for="situation in situations">
+                                <label for="">
+                                    ${situation}
+                                    <input type="checkbox" aria-label="..." @Click="addStuff('situation', situation)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#Modal hobbies#}
+        <div class="modal fade" id="hobbyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-4" v-for="hobby in hobbies">
+                                <label for="">
+                                    ${hobby}
+                                    <input type="checkbox" aria-label="..." @Click="addStuff('hobby', hobby)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script>
+            var form = new Vue({
+                delimiters: ['${', '}'],
+                el: '#sondage_form',
+                data: {
+                    part_1: true,
+                    part_2: false,
+                    title: '',
+                    maxBudget: '',
+                    minAge: 0,
+                    maxAge: 99,
+                    departements: [],
+                    departementsSelected: [],
+                    situations: [
+                        'Sans emploi',
+                        'Etudiant',
+                        'Retraité',
+                        'Employé'
+                    ],
+                    situationsSelected: [],
+                    hobbies: [
+                        'Lecture',
+                        'Jeux-vidéos',
+                        'Activité maritime',
+                        'Jardinage',
+                        'Shopping',
+                        'Cuisine'
+                    ],
+                    hobbiesSelected: []
+                },
+                methods: {
+                    addStuff: function (type, data) {
+
+                        function filterArray(arr, itemToFilter) {
+                            return arr.filter(function (value) {
+                                return value !== itemToFilter;
+                            })
+                        }
+
+                        switch (type) {
+                            case 'dep':
+                                if (this.departementsSelected.includes(data)) this.departementsSelected = filterArray(this.departementsSelected, data);
+                                else this.departementsSelected.push(data);
+                                break;
+                            case 'hobby':
+                                console.log(this.hobbiesSelected[data]);
+                                if (this.hobbiesSelected.includes(data)) this.hobbiesSelected = filterArray(this.hobbiesSelected, data);
+                                else this.hobbiesSelected.push(data);
+                                break;
+                            case 'situation':
+                                if (this.situationsSelected.includes(data)) this.situationsSelected = filterArray(this.situationsSelected, data);
+                                else this.situationsSelected.push(data);
+                                break;
+                        }
+
+                    },
+                    submitForm: function () {
+
+                    }
+
+                },
+                mounted: function () {
+                }
+            });
+
+            const nbDep = 95;
+            for (var i = 0; i < nbDep; i++) {
+                console.log(i);
+                form.$data.departements.push(String(i))
+            }
+        </script>
+    {% endblock %}

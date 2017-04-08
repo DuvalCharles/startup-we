@@ -2,6 +2,9 @@
 
 namespace SUWE\CoreBundle\Controller;
 
+use SUWE\SondageBundle\Entity\Sondage;
+
+use SUWE\SondageBundle\Form\Type\SondageCreateType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -28,7 +31,18 @@ class AnnonceurController extends Controller
      */
     public function sondageCreateAction()
     {
-        return $this->render('SUWECoreBundle:Annoncer:sondage_create.html.twig');
+        $sondage = new Sondage();
+
+        $form = $this->createForm(SondageCreateType::class, $sondage);
+        dump($form);
+        if ($form->isValid() && $form->getMethod('POST')) {
+            exit(dump($sondage));
+        }
+
+
+        return $this->render('SUWECoreBundle:Annoncer:sondage_create.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**

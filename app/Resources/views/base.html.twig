@@ -38,7 +38,6 @@
                         <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                     </li>
                 {% else %}
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
                     </li>
@@ -51,7 +50,6 @@
                         {% endif %}
                     </li>
                 {% endif %}
-
             </ul>
         </div>
     </nav>
@@ -63,7 +61,7 @@
 </div>
 
 {% block javascripts %}
-    <script type="application/javascript" src="{{ asset('assets/js/vue.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
     <script type="application/javascript" src="{{ asset('assets/js/vue-resource.min.js') }}"></script>
     <script type="application/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script type="application/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

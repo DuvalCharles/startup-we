@@ -86,6 +86,13 @@ class Sondage
     private $maxBudget;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="nbQuestion", type="integer")
+     */
+    private $nbQuestions;
+
+    /**
      * @var Question[]
      *
      * @ORM\OneToMany(targetEntity="SUWE\SondageBundle\Entity\Question", mappedBy="sondage")
@@ -113,6 +120,7 @@ class Sondage
     {
         $this->questions = new \Doctrine\Common\Collections\ArrayCollection();
         $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->currentBudget = 0;
     }
 
 
@@ -340,6 +348,22 @@ class Sondage
     public function getMaxBudget()
     {
         return $this->maxBudget;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbQuestions()
+    {
+        return $this->nbQuestions;
+    }
+
+    /**
+     * @param int $nbQuestions
+     */
+    public function setNbQuestions($nbQuestions)
+    {
+        $this->nbQuestions = $nbQuestions;
     }
 
     /**
