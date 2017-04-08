@@ -3,7 +3,7 @@
     <div id="sondage_form">
         {{ form_start(form) }}
         <div class="row justify-content-space-between">
-            <div class="col-12" v-bind:class="{!part_1: isFuckingGone }">
+            <div class="col-12" :class="{isFuckingGone: !part_1}">
                 <h1>Création de sondage -
                     <small>Cible</small>
                 </h1>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12" v-show="part_1: isFuckingGone">
+            <div class="col-12" :class="{isFuckingGone: part_1 }">
                 <h1>Création de sondage -
                     <small>Questions</small>
                 </h1>
@@ -279,7 +279,6 @@
 
             const nbDep = 95;
             for (var i = 0; i < nbDep; i++) {
-                console.log(i);
                 form.$data.departements.push(String(i))
             }
         </script>
