@@ -2,38 +2,39 @@
 
 namespace SUWE\UserBundle\EventListener;
 
-use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use FOS\UserBundle\FOSUserEvents;
+use Symfony\Component\Asset\Packages;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\Routing\RouterInterface;
 
-
-class RoutesListener
+/**
+ * Class RegistrationListener
+ * @package SUWE\UserBundle\EventListener
+ */
+class RegistrationListener implements EventSubscriberInterface
 {
+    private $assets;
     private $routerInterface;
-    private $tokenStorageInterface;
 
-    public function __construct(RouterInterface $routerInterface, TokenStorageInterface $tokenStorageInterface)
+    public function __construct(Packages $assets, RouterInterface $routerInterface)
     {
+        $this->assets = $assets;
         $this->routerInterface = $routerInterface;
-        $this->tokenStorageInterface = $tokenStorageInterface;
     }
 
-    public function onKernelRequest(GetResponseEvent $event)
+    public static function getSubscribedEvents()
     {
-        $request = $event->getRequest();
-        $routeName = $request->get('_route');
+        return [
+            FOSUserEvents::REGISTRATION_CONFIRMED => 'onRegistrationConfirmed'
+        ];
+    }
 
-        if ($routeName === 'fos_user_registration_confirmed') {
-            return $event->setResponse(
-                new RedirectResponse(
-                    $this->routerInterface->generate('dashboard_consumer')
-                ));
-        }
-
-        return false;
-
+    public function onRegistrationConfirmed($event)
+    {
+        exit(dump('salut'));
+        $event->setResponse(new RedirectResponse(
+            $this->routerInterface->generate('dashboard_consumer')
+        ));
     }
 }

@@ -2,64 +2,95 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>StartUp - WeekEnd</title>
+    <title>Check'it</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+
+
     {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}"/>
 </head>
 <body>
 
-<div class="container-fluid p-0">
+<div class="container-fluid">
     {#HEADER#}
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">LOGO</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    {% if app.request.get('_route') == "home_consumer" %}
-                        <a class="nav-link" href="{{ path('home_consumer') }}">Accueil</a>
-                    {% else %}
-                        <a class="nav-link" href="{{ path('home_annonceur') }}">Accueil</a>
-                    {% endif %}
-
-                </li>
-                {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        {% if app.request.get('_route') == "home_annonceur" %}
-                            <a class="nav-link"
-                               href="{{ path('fos_user_registration_register', {'annonceur':'true'}) }}">Inscription</a>
+    <div class="row">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 p-0">
+            <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('home_consumer') }}">
+                    <img class="img-fluid hidden-sm-down" src="{{ asset('assets/images/logo.jpg') }}" alt="">
+                    <img class="logo-small img-fluid hidden-md-up" src="{{ asset('assets/images/logo.jpg') }}"
+                         alt="">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto text-center">
+                        {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('dashboard_consumer') }}">Sondages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('shop_consumer') }}">Boutique</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                            </li>
                         {% else %}
-                            <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            </li>
+                            <li class="nav-item">
+                                {% if app.request.get('_route') == "home_annonceur" %}
+                                    <a class="nav-link"
+                                       href="{{ path('fos_user_registration_register', {'annonceur':'true'}) }}">Inscription</a>
+                                {% else %}
+                                    <a class="nav-link"
+                                       href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                                {% endif %}
+                            </li>
                         {% endif %}
-                    </li>
-                {% endif %}
-            </ul>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    {#HEADER#}
+    <div class="row">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 p-0">
+            {% block body %}
 
-    {% block body %}
 
-
-    {% endblock %}
+            {% endblock %}
+        </div>
+    </div>
 </div>
 
+{#FOOTER#}
+<div class="container-fluid">
+    <div class="row">
+        <div id="footer" class="text-center col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+            <p class="small">© Copyright 2017 - Check'it - Tous droits réservés -
+                <a href="{{ path('home_annonceur') }}">
+                    Zone Pro
+                </a></p>
+
+        </div>
+    </div>
+</div>
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
     <script type="application/javascript" src="{{ asset('assets/js/vue-resource.min.js') }}"></script>
