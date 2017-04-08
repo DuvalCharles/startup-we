@@ -1,7 +1,12 @@
-suwe_core:
-    resource: "@SUWECoreBundle/Controller/CoreController.php"
+suwe_consumer:
+    resource: "@SUWECoreBundle/Controller/ConsumerController.php"
     type:     annotation
     prefix:   /
+
+suwe_announceur:
+    resource: "@SUWECoreBundle/Controller/AnnonceurController.php"
+    type: annotation
+    prefix: /annonceur
 
 #API
 
