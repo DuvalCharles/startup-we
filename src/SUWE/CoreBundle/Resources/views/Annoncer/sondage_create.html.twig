@@ -3,8 +3,10 @@
     <div id="sondage_form">
         {{ form_start(form) }}
         <div class="row justify-content-space-between">
-            <div class="col-12" v-show="part_1">
-                <h1>Création de sondage</h1>
+            <div class="col-12" v-bind:class="{!part_1: isFuckingGone }">
+                <h1>Création de sondage -
+                    <small>Cible</small>
+                </h1>
                 <hr>
                 <div class="row form-group">
                     <div class="col-12">
@@ -13,11 +15,17 @@
                     </div>
                     <div class="col-6">
                         <label> {{ form_label(form.nbQuestions) }}</label>
-                        {{ form_widget(form.nbQuestions) }}
+                        <div class="input-group">
+                            <span class="input-group-addon">?</span>
+                            {{ form_widget(form.nbQuestions) }}
+                        </div>
                     </div>
                     <div class="col-6">
                         <label> {{ form_label(form.maxBudget) }}</label>
-                        {{ form_widget(form.maxBudget, {'attr': {'v-model' : 'maxBudget', 'value': null}}) }}
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            {{ form_widget(form.maxBudget, {'attr': {'v-model' : 'maxBudget', 'value': null}}) }}
+                        </div>
                     </div>
                     <div class="col-12">
                         <h2>Cible</h2>
@@ -62,10 +70,47 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group">
-                        <button class="btn btn-success">Confirmer et Créer les questions</button>
+                        <a class="btn btn-success" @Click="part_1 = false">Confirmer et Créer les questions</a>
                     </div>
                 </div>
             </div>
+            <div class="col-12" v-show="part_1: isFuckingGone">
+                <h1>Création de sondage -
+                    <small>Questions</small>
+                </h1>
+                <hr>
+                <div class="row form-group" v-for="(question, index) in questions">
+                    <div class="col-12">
+                        <label>Question ${index+1}</label>
+                        <input class="form-control" :id="'q-'+index+'-intitule'" type="text">
+                        <hr style="width:50%">
+                        {#BINARY#}
+                        <div class="input-group" v-if="question.type === 'binary'">
+                            <label for="">
+                                Oui
+                                <input type="checkbox" id="'q-'+id+'-response-1'">
+                            </label>
+                            <label for="">
+                                Non
+                                <input type="checkbox" id="'q-'+id+'-response-2'">
+                            </label>
+                            <label for="">
+                                Autre
+                                <input type="checkbox" id="'q-'+id+'-response-3'">
+                            </label>
+                        </div>
+                        {#SINGLE#}
+                        <div class="input-group" v-if="question.type === 'single'">
+                            <div class="input-group">
+                                <input type="text" class="form-control" :id="'q-'+index+'-response-1'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-danger" @Click="submitForm">FUCK YEAH MUTHAFUCKA</button>
+
+            {{ form_rest(form) }}
         </div>
 
         {#MODAL TIME#}
@@ -151,7 +196,6 @@
                 el: '#sondage_form',
                 data: {
                     part_1: true,
-                    part_2: false,
                     title: '',
                     maxBudget: '',
                     minAge: 0,
@@ -173,7 +217,21 @@
                         'Shopping',
                         'Cuisine'
                     ],
-                    hobbiesSelected: []
+                    hobbiesSelected: [],
+                    nbQuestions: 0,
+                    questions: []
+                },
+                watch: {
+                    part_1: function (nextValue) {
+                        if (nextValue === false) {
+                            for (var i = 0; i < this.nbQuestions; i++) {
+                                this.questions.push({
+                                    type: 'binary',
+                                    intitule: ''
+                                })
+                            }
+                        }
+                    }
                 },
                 methods: {
                     addStuff: function (type, data) {
@@ -202,11 +260,20 @@
 
                     },
                     submitForm: function () {
+                        console.log('LAUCNHED');
+                        $('#sondage_form').submit();
+                    },
+                    addQuestion: function () {
+                        if (this.nbQuestionsAdded - this.nbQuestions > 0) {
 
+                        }
                     }
-
                 },
                 mounted: function () {
+                    this.nbQuestions = Number($('#sondage_create_nbQuestions')[0].options[0].innerText);
+                    $('#sondage_create_nbQuestions').on('change', function (event) {
+                        form.$data.nbQuestions = event.target.options[event.target.value].innerText;
+                    })
                 }
             });
 
