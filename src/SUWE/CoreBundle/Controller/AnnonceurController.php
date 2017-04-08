@@ -36,7 +36,7 @@ class AnnonceurController extends Controller
         $form = $this->createForm(SondageCreateType::class, $sondage);
         dump($form);
         if ($form->isValid() && $form->getMethod('POST')) {
-            exit(dump($sondage));
+            exit(dump($form));
         }
 
 
