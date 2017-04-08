@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Nelmio\CorsBundle\NelmioCorsBundle(),
             new SUWE\UserBundle\SUWEUserBundle(),
             new SUWE\CoreBundle\SUWECoreBundle(),
+            new SUWE\SondageBundle\SUWESondageBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

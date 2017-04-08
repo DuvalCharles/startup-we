@@ -26,7 +26,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('home_page') }}">Accueil</a>
+                    {% if app.request.get('_route') == "home_consumer" %}
+                        <a class="nav-link" href="{{ path('home_consumer') }}">Accueil</a>
+                    {% else %}
+                        <a class="nav-link" href="{{ path('home_annonceur') }}">Accueil</a>
+                    {% endif %}
+
                 </li>
                 {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
                     <li class="nav-item">

@@ -3,6 +3,7 @@
 namespace SUWE\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
+use SUWE\SondageBundle\Entity\Sondage;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,33 +26,88 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var boolean
+     */
+    private $annoncer;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @ORM\Column(name="departement", type="string", length=255)
      */
-    protected $name;
+    private $departement;
 
     /**
-     * Set name
+     * @var string
      *
-     * @param string $name
-     *
-     * @return User
+     * @ORM\Column(name="statusPro", type="string", length=255)
      */
-    public function setName($name)
-    {
-        $this->name = $name;
+    private $statusPro;
 
-        return $this;
-    }
 
     /**
-     * Get name
+     * @var integer
      *
-     * @return string
+     * @ORM\Column(name="age", type="string", length=255)
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $age;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gender", type="string", length=255)
+     */
+    private $gender;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hobbies", type="string", length=500)
+     */
+    private $hobbies;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbJetons", type="integer")
+     */
+    private $nbJetons;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="totalPoints", type="integer")
+     */
+    private $totalPoints;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="societe", type="string")
+     */
+    private $societe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imageName", type="string")
+     */
+    private $imageName;
+
+    /**
+     * @var Sondage[]
+     *
+     * @ORM\ManyToMany(targetEntity="SUWE\SondageBundle\Entity\Sondage", mappedBy="participants", nullable=true)
+     */
+    private $answeredSondages;
+
+
+    /**
+     * @var Sondage[]
+     *
+     * @ORM\OneToMany(targetEntity="SUWE\SondageBundle\Entity\Sondage", mappedBy="creator", nullable=true)
+     */
+    private $createdSondages;
+
+
 }

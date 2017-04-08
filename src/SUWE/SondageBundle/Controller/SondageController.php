@@ -1,17 +1,17 @@
 <?php
 
-namespace SUWE\CoreBundle\Controller;
+namespace SUWE\SondageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class CoreController extends Controller
+class SondageController extends Controller
 {
     /**
-     * @Route("/", name="home_page")
+     * @Route("/")
      */
     public function indexAction()
     {
-        return $this->render('SUWECoreBundle::index.html.twig');
+        return $this->render('SUWESondageBundle:Default:index.html.twig');
     }
 }
