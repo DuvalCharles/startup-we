@@ -1,0 +1,44 @@
+/*fedf2f*/
+/*Header*/
+
+body {
+    font-family: 'Merriweather', serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Fjalla One', sans-serif;
+    margin-top: 30px;
+    color: #fedf2f;
+}
+
+h3 {
+    color: #fff;
+}
+
+.bg-faded {
+    background-color: #fff;
+    border-bottom: solid 2px #bcbcbc;
+}
+
+/*Burger*/
+.navbar-light .navbar-toggler {
+    margin-top: 5px;
+    cursor: pointer;
+    border-color: rgba(0, 0, 0, .1);
+}
+
+.navbar-light .navbar-toggler:active, .navbar-light .navbar-toggler:focus, .navbar-light .navbar-toggler:active:focus {
+    text-decoration: none
+}
+
+.logo-small {
+    height: 40px;
+}
+
+/*FOOTER*/
+
+#footer {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background-color: #fedf2f;
+}

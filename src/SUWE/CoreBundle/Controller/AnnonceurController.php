@@ -15,6 +15,8 @@ class AnnonceurController extends Controller
      */
     public function indexAction()
     {
+        $user = $this->getUser();
+        if ($user && $user->isAnnoncer()) return $this->redirect($this->generateUrl('dashboard_annonceur'));
         return $this->render('SUWECoreBundle:Annoncer:index.html.twig');
     }
 

@@ -8,3 +8,10 @@ services:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
 
+#Redirection when user is logged-in
+
+    suwe_user.listener.registration_confirmed:
+         class: SUWE\UserBundle\EventListener\RegistrationListener
+         arguments: ['@assets.packages','@router']
+         tags:
+           - { name: kernel.event_subscriber}

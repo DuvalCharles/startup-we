@@ -12,6 +12,8 @@ class ConsumerController extends Controller
      */
     public function indexAction()
     {
+        $user = $this->getUser();
+        if ($user && !$user->isAnnoncer()) return $this->redirect($this->generateUrl('dashboard_consumer'));
         return $this->render('SUWECoreBundle:Consumer:index.html.twig');
     }
 
@@ -24,7 +26,7 @@ class ConsumerController extends Controller
     }
 
     /**
-     * @Route("/dashboard", name="dashboard_consumer")
+     * @Route("/boutique", name="shop_consumer")
      */
     public function boutiqueAction()
     {
