@@ -95,14 +95,14 @@ class Sondage
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="SUWE\UserBundle\Entity\User", inversedBy="sondages")
+     * @ORM\ManyToOne(targetEntity="SUWE\UserBundle\Entity\User", inversedBy="createdSondages")
      */
     private $creator;
 
     /**
      * @var User[]
      *
-     * @ORM\ManyToMany(targetEntity="SUWE\UserBundle\Entity\User", inversedBy="sondages")
+     * @ORM\ManyToMany(targetEntity="SUWE\UserBundle\Entity\User", inversedBy="answeredSondages")
      */
     private $participants;
 
