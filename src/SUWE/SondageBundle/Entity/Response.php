@@ -42,6 +42,13 @@ class Response
      */
     private $question;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->score = 0;
+    }
 
     /**
      * Get id
