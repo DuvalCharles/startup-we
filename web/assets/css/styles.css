@@ -35,6 +35,14 @@ a:hover {
     background-color: #fff;
 }
 
+/*ANNOUNCER*/
+
+.isFuckingGone {
+    position: absolute;
+    left: -2000px;
+    transition: all ease-in 2s;
+}
+
 /*Burger*/
 .navbar-light .navbar-toggler {
     margin-top: 5px;

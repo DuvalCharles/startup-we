@@ -46,28 +46,28 @@ class Sondage
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string", length=255)
+     * @ORM\Column(name="gender", type="string", length=255, nullable=true)
      */
     private $gender;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="departement", type="string", length=255)
+     * @ORM\Column(name="departement", type="string", length=255, nullable=true)
      */
     private $departement;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="statusPro", type="string", length=255)
+     * @ORM\Column(name="statusPro", type="string", length=255, nullable=true)
      */
     private $statusPro;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hobbies", type="string", length=255)
+     * @ORM\Column(name="hobbies", type="string", length=255, nullable=true)
      */
     private $hobbies;
 
@@ -95,7 +95,7 @@ class Sondage
     /**
      * @var Question[]
      *
-     * @ORM\OneToMany(targetEntity="SUWE\SondageBundle\Entity\Question", mappedBy="sondage")
+     * @ORM\OneToMany(targetEntity="SUWE\SondageBundle\Entity\Question", mappedBy="sondage", cascade={"persist"})
      */
     private $questions;
 
@@ -121,6 +121,7 @@ class Sondage
         $this->questions = new \Doctrine\Common\Collections\ArrayCollection();
         $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
         $this->currentBudget = 0;
+        $this->nbQuestions = 5;
     }
 
 
@@ -377,6 +378,7 @@ class Sondage
     {
         $this->questions[] = $question;
 
+        $question->setSondage($this);
         return $this;
     }
 

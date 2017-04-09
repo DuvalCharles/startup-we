@@ -1,190 +1,194 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div id="sondage_form">
-        {{ form_start(form) }}
-        <div class="row justify-content-space-between">
-            <div class="col-12" v-bind:class="{!part_1: isFuckingGone }">
-                <h1>Création de sondage -
-                    <small>Cible</small>
-                </h1>
-                <hr>
-                <div class="row form-group">
-                    <div class="col-12">
-                        <label> {{ form_label(form.title) }}</label>
-                        {{ form_widget(form.title, {'attr': {'v-model' : 'title', 'maxlength':'50', 'value': null}}) }}
+    {{ form_start(form) }}
+    <div class="row justify-content-space-between">
+        <div class="col-12" :class="{isFuckingGone: !part_1}">
+            <h1>Création de sondage -
+                <small>Cible</small>
+            </h1>
+            <hr>
+            <div class="row form-group">
+                <div class="col-12">
+                    <label> {{ form_label(form.title) }}</label>
+                    {{ form_widget(form.title, {'attr': {'v-model' : 'title', 'maxlength':'50', 'value': null}}) }}
+                </div>
+                <div class="col-6">
+                    <label> {{ form_label(form.nbQuestions) }}</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">?</span>
+                        {{ form_widget(form.nbQuestions) }}
                     </div>
-                    <div class="col-6">
-                        <label> {{ form_label(form.nbQuestions) }}</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">?</span>
-                            {{ form_widget(form.nbQuestions) }}
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <label> {{ form_label(form.maxBudget) }}</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            {{ form_widget(form.maxBudget, {'attr': {'v-model' : 'maxBudget', 'value': null}}) }}
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <h2>Cible</h2>
-                    </div>
-                    <div class="col-6">
-                        <label> {{ form_label(form.minAge) }}</label>
-                        {{ form_widget(form.minAge, {'attr': {'v-model' : 'minAge', 'value': null}}) }}
-                    </div>
-                    <div class="col-6">
-                        <label> {{ form_label(form.maxAge) }}</label>
-                        {{ form_widget(form.maxAge, {'attr': {'v-model' : 'maxAge', 'value': null}}) }}
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <h3>Départements</h3>
-                        <ul v-if="departementsSelected.length > 0">
-                            <li v-for="departement in departementsSelected">${departement}</li>
-                        </ul>
-                        <a class="btn btn-success" data-toggle="modal" data-target="#depModal">Selectionner
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <h3>Situation</h3>
-                        <ul v-if="situations.length > 0">
-                            <li v-for="situation in situationsSelected">${situation}</li>
-                        </ul>
-                        <a class="btn btn-success" data-toggle="modal" data-target="#situationModal">
-                            Selectionner
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <h3>Centre d'intérêt</h3>
-                        <ul v-if="hobbiesSelected.length > 0">
-                            <li v-for="hobby in hobbiesSelected">${hobby}</li>
-                        </ul>
-                        <a class="btn btn-success" data-toggle="modal" data-target="#hobbyModal">
-                            Selectionner
-                        </a>
-                    </div>
-                    <div class="d-none">
-                        {{ form_rest(form) }}
+                </div>
+                <div class="col-6">
+                    <label> {{ form_label(form.maxBudget) }}</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        {{ form_widget(form.maxBudget, {'attr': {'v-model' : 'maxBudget', 'value': null}}) }}
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="form-group">
-                        <a class="btn btn-success" @Click="part_1 = false">Confirmer et Créer les questions</a>
-                    </div>
+                    <h2>Cible</h2>
                 </div>
-            </div>
-            <div class="col-12" v-show="part_1: isFuckingGone">
-                <h1>Création de sondage -
-                    <small>Questions</small>
-                </h1>
-                <hr>
-                <div class="row form-group" v-for="(question, index) in questions">
-                    <div class="col-12">
-                        <label>Question ${index+1}</label>
-                        <input class="form-control" :id="'q-'+index+'-intitule'" type="text">
-                        <hr style="width:50%">
-                        {#BINARY#}
-                        <div class="input-group" v-if="question.type === 'binary'">
-                            <label for="">
-                                Oui
-                                <input type="checkbox" id="'q-'+id+'-response-1'">
-                            </label>
-                            <label for="">
-                                Non
-                                <input type="checkbox" id="'q-'+id+'-response-2'">
-                            </label>
-                            <label for="">
-                                Autre
-                                <input type="checkbox" id="'q-'+id+'-response-3'">
-                            </label>
-                        </div>
-                        {#SINGLE#}
-                        <div class="input-group" v-if="question.type === 'single'">
-                            <div class="input-group">
-                                <input type="text" class="form-control" :id="'q-'+index+'-response-1'">
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-6">
+                    <label> {{ form_label(form.minAge) }}</label>
+                    {{ form_widget(form.minAge, {'attr': {'v-model' : 'minAge', 'value': null}}) }}
                 </div>
+                <div class="col-6">
+                    <label> {{ form_label(form.maxAge) }}</label>
+                    {{ form_widget(form.maxAge, {'attr': {'v-model' : 'maxAge', 'value': null}}) }}
+                </div>
+                <div class="col-12 col-sm-4">
+                    <h3>Départements</h3>
+                    <ul v-if="departementsSelected.length > 0">
+                        <li v-for="departement in departementsSelected">${departement}</li>
+                    </ul>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#depModal">Selectionner
+                    </a>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <h3>Situation</h3>
+                    <ul v-if="situations.length > 0">
+                        <li v-for="situation in situationsSelected">${situation}</li>
+                    </ul>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#situationModal">
+                        Selectionner
+                    </a>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <h3>Centre d'intérêt</h3>
+                    <ul v-if="hobbiesSelected.length > 0">
+                        <li v-for="hobby in hobbiesSelected">${hobby}</li>
+                    </ul>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#hobbyModal">
+                        Selectionner
+                    </a>
+                </div>
+
             </div>
-            <button type="submit" class="btn btn-lg btn-danger" @Click="submitForm">FUCK YEAH MUTHAFUCKA</button>
-
-            {{ form_rest(form) }}
-        </div>
-
-        {#MODAL TIME#}
-
-        {#Modal département#}
-        <div class="modal fade" id="depModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-3" v-for="departement in departements">
-                                <label for="">
-                                    ${departement}
-                                    <input type="checkbox" aria-label="..." @Click="addStuff('dep', departement)">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
-                    </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <a class="btn btn-success" @Click="part_1 = false">Confirmer et Créer les questions</a>
                 </div>
             </div>
         </div>
-
-        {#Modal situation pro#}
-        <div class="modal fade" id="situationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-4" v-for="situation in situations">
-                                <label for="">
-                                    ${situation}
-                                    <input type="checkbox" aria-label="..." @Click="addStuff('situation', situation)">
-                                </label>
-                            </div>
+        <div class="col-12" :class="{isFuckingGone: part_1 }">
+            <h1>Création de sondage -
+                <small>Questions</small>
+            </h1>
+            <hr>
+            <div class="row form-group" v-for="(question, index) in questions">
+                <div class="col-12" :id="'q-'+index">
+                    <label>Question ${index+1}</label>
+                    <input class="form-control" :name="'q-'+index+'-intitule'" type="text">
+                    <label for="sel1">Type de question</label>
+                    <select class="form-control questionType">
+                        <option>Binaire</option>
+                        <option>Réponses Mutliples</option>
+                        <option>Réponses Unique</option>
+                    </select>
+                    <hr style="width:50%">
+                    {#BINARY#}
+                    <div class="input-group row" v-if="question.type === 'binary'">
+                        <label for="">
+                            Oui
+                            <input type="checkbox">
+                        </label>
+                        <label for="">
+                            Non
+                            <input type="checkbox">
+                        </label>
+                        <label for="">
+                            Autre
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                    {#SINGLE#}
+                    <div class="input-group row" v-if="question.type === 'single' ||question.type === 'multiple' ">
+                        <div class="col-12">
+                            <input type="text" class="form-control" :name="'q-'+index+'-response-1'">
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
-                    </div>
+                    <input class="d-none" :id="'q-'+index+'-type'" :name="'q-'+index+'-type'">
                 </div>
             </div>
+            <button type="submit" @Click="submitForm" class="btn btn-lg btn-danger">FUCK YEAH MUTHAFUCKA</button>
         </div>
+    </div>
 
-        {#Modal hobbies#}
-        <div class="modal fade" id="hobbyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-4" v-for="hobby in hobbies">
-                                <label for="">
-                                    ${hobby}
-                                    <input type="checkbox" aria-label="..." @Click="addStuff('hobby', hobby)">
-                                </label>
-                            </div>
+    {#MODAL TIME#}
+
+    {#Modal département#}
+    <div class="modal fade" id="depModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-3" v-for="departement in departements">
+                            <label for="">
+                                ${departement}
+                                <input type="checkbox" aria-label="..." @Click="addStuff('dep', departement)">
+                            </label>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
                 </div>
             </div>
         </div>
     </div>
 
+    {#Modal situation pro#}
+    <div class="modal fade" id="situationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-4" v-for="situation in situations">
+                            <label for="">
+                                ${situation}
+                                <input type="checkbox" aria-label="..." @Click="addStuff('situation', situation)">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#Modal hobbies#}
+    <div class="modal fade" id="hobbyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-4" v-for="hobby in hobbies">
+                            <label for="">
+                                ${hobby}
+                                <input type="checkbox" aria-label="..." @Click="addStuff('hobby', hobby)">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Sauvegarder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-none">
+        {{ form_rest(form) }}
+    </div>
+    {{ form_end(form) }}
 {% endblock %}
 
     {% block javascripts %}
@@ -231,6 +235,49 @@
                                 })
                             }
                         }
+
+                        setTimeout(function () {
+                            $('.questionType').change(function (e) {
+                                var newType = e.target.value;
+                                var parent = e.target.parentNode;
+                                var inputsToReplace = $(parent).find('.input-group');
+                                var questionId = parent.id.split('-')[1];
+
+                                $(parent).find("#q-" + questionId + "-type")[0].value = newType;
+                                console.log($(parent).find("#q-" + questionId + "-type"));
+
+                                var binaryNodes = '<label for=""> Oui <input type="checkbox"> </label> <label for=""> Non <input type="checkbox"> </label> <label for=""> Autre <input type="checkbox"> </label>';
+                                var multipleAndSimpleNodes = $('<input type="text" class="form-control" style="display: block;width: 100%; padding:1rem 0">');
+
+                                multipleAndSimpleNodes[0]['name'] = "q-" + questionId + "-response-1";
+
+                                var button = $("<a class='btn btn-primary btn-lg btn-block'>Ajouter une réponse +</a>");
+                                button[0]['id'] = questionId;
+                                button[0].onclick = function () {
+                                    var divToAdd = $('#q-' + questionId).find('.input-group')[0];
+                                    var resId = divToAdd.childNodes.length;
+                                    var newNode = $('<input type="text" class="form-control" style="display: block;width: 100%; padding:1rem 0">');
+
+                                    newNode[0]['name'] = "q-" + questionId + "-response-" + resId;
+                                    divToAdd.prepend(newNode[0]);
+                                }
+
+
+                                switch (newType) {
+                                    case 'Binaire':
+                                        inputsToReplace[0].innerHTML = binaryNodes;
+                                        break;
+                                    case 'Réponses Mutliples':
+                                        $(inputsToReplace[0]).empty().append(multipleAndSimpleNodes[0]);
+                                        inputsToReplace[0].appendChild(button[0]);
+                                        break;
+                                    case 'Réponses Unique':
+                                        $(inputsToReplace[0]).empty().append(multipleAndSimpleNodes[0]);
+                                        inputsToReplace[0].appendChild(button[0]);
+                                        break;
+                                }
+                            }.bind(this))
+                        }.bind(this), 500);
                     }
                 },
                 methods: {
@@ -263,10 +310,8 @@
                         console.log('LAUCNHED');
                         $('#sondage_form').submit();
                     },
-                    addQuestion: function () {
-                        if (this.nbQuestionsAdded - this.nbQuestions > 0) {
+                    addResponse: function (id) {
 
-                        }
                     }
                 },
                 mounted: function () {
@@ -277,9 +322,13 @@
                 }
             });
 
+            function addResponse(id) {
+                var divToAdd = $('#q-' + id).find('.input-group')[0];
+                console.log(divToAdd);
+            }
+
             const nbDep = 95;
             for (var i = 0; i < nbDep; i++) {
-                console.log(i);
                 form.$data.departements.push(String(i))
             }
         </script>
