@@ -1,18 +1,36 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-    <h1 class="text-center">Liste de mes sondages</h1>
-    <div class="row">
-        <div class="col-12 col-md-8 offset-md-2 text-center">
+    <h1 class="text-center">Mes sondages</h1>
+    <ul class="nav nav-tabs text-center" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" href="#profile" role="tab" data-toggle="tab">Sondages en cours</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">Sondages terminés</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="profile">
+            <div class="col-12 col-md-8 offset-md-2 text-center">
+                {% if sondages|length == 0 %}
+                    <hr>
+                    Vous n'avez pas encore créé de sondage<br>
+                    <a href="{{ path('sondage_creation_annoncer') }}" class="btn btn-success">Je me lance !</a>
+                {% endif %}
+            </div>
             {% for sondage in sondages %}
-                <a href="{{ path('sondage_stats_annoncer', {'id': sondage.id}) }}">{{ sondage.title }}</a>
+                <div class="col-12 text-center p-4">
+                    <a class="text-center"
+                       style="color: #333;font-size:25px;margin-top: 20px!important;text-decoration: underline;"
+                       href="{{ path('sondage_stats_annoncer', {'id': sondage.id}) }}">{{ sondage.title }}</a>
+                </div>
             {% endfor %}
-            {% if sondages|length == 0 %}
-                <hr>
-                Vous n'avez pas encore créé de sondage<br>
-                <a href="{{ path('sondage_creation_annoncer') }}" class="btn btn-success">Je me lance !</a>
-            {% endif %}
         </div>
+        <div role="tabpanel" class="tab-pane fade p-4 text-center" id="buzz">Aucun sondage terminé</div>
     </div>
+
 
 {% endblock %}

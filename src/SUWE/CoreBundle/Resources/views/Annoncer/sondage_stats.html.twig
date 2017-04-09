@@ -5,9 +5,10 @@
             <h2>Sondage n° 02536</h2>
             <h1 class="">{{ sondage.title }}</h1>
             <hr>
-            Budget: {{ sondage.maxBudget }}<br>
-            Age minimum : {{ sondage.minAge }}<br>
-            Age maximum : {{ sondage.maxAge }}<br>
+            Zone géographique : 56 (Morbihan)<br><br>
+            <b>Budget: 10 000 €</b><br><br>
+            Age minimum : {{ sondage.minAge }} ans<br>
+            Age maximum : {{ sondage.maxAge }} ans<br><br>
             Total des questionnaires réalisés : 287<br>
             Questionnaires réalisés aujourd'hui : 62
         </div>
@@ -25,6 +26,16 @@
         <div class="col-6 offset-3 text-center" style="margin-top: 40px;">
             <h3>Question 3</h3>
             <img class="img-fluid" src="{{ asset('assets/images/stat3.png') }}" alt="">
+        </div>
+
+        <div class="col-3 offset-2 text-center" style="margin-top: 40px;">
+            <h3>Question 4</h3>
+            <img class="img-fluid" src="{{ asset('assets/images/stat2.png') }}" alt="">
+        </div>
+
+        <div class="col-3 offset-2 text-center" style="margin-top: 40px;">
+            <h3>Question 5</h3>
+            <img class="img-fluid" src="{{ asset('assets/images/stat1.png') }}" alt="">
         </div>
     </div>
 {% endblock %}

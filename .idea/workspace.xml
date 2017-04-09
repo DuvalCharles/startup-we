@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b20d784b-a8c7-4eb4-83f4-122b5c2da2ca" name="Default" comment="Merge branch 'master' of https://github.com/DuvalCharles/startup-we&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
+    <list default="true" id="b20d784b-a8c7-4eb4-83f4-122b5c2da2ca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/AnnonceurController.php" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/AnnonceurController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_create.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_create.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_stats.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_stats.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/SondageBundle/Entity/Sondage.php" afterPath="$PROJECT_DIR$/src/SUWE/SondageBundle/Entity/Sondage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/styles.css" afterPath="$PROJECT_DIR$/web/assets/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig" />
     </list>
     <ignored path="startup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,16 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="loterie.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/loterie.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Sondage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SUWE/SondageBundle/Entity/Sondage.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -63,11 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+            <state relative-caret-position="408">
+              <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+              <folding>
+                <element signature="e#1093#1182#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -103,15 +98,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sondage_stats.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sondage_stats.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_stats.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+            <state relative-caret-position="136">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding>
-                <element signature="e#560#585#0#HTML" expanded="true" />
-                <element signature="e#771#796#0#HTML" expanded="true" />
-                <element signature="e#982#1007#0#HTML" expanded="true" />
+                <element signature="e#622#647#0#HTML" expanded="true" />
+                <element signature="e#833#858#0#HTML" expanded="true" />
+                <element signature="e#1044#1069#0#HTML" expanded="true" />
+                <element signature="e#1255#1280#0#HTML" expanded="true" />
+                <element signature="e#1466#1491#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,18 +117,18 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            <state relative-caret-position="85">
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsumerController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/ConsumerController.php">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="50" selection-end-column="34" />
+            <state relative-caret-position="85">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -162,9 +159,7 @@
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/Form/ImageType.php" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/Image.php" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/EventListener/RoutesListener.php" />
-        <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/Form/RegistrationType.php" />
-        <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig" />
         <option value="$PROJECT_DIR$/src/SUWE/SondageBundle/Repository/LotRepository.php" />
         <option value="$PROJECT_DIR$/src/SUWE/SondageBundle/Entity/Lot.php" />
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/lot.html.twig" />
@@ -187,8 +182,10 @@
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/AnnonceurController.php" />
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/sondage.html.twig" />
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig" />
+        <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig" />
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_stats.html.twig" />
+        <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig" />
+        <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig" />
       </list>
     </option>
   </component>
@@ -681,7 +678,7 @@
       <workItem from="1491685257417" duration="8207000" />
       <workItem from="1491693807971" duration="17334000" />
       <workItem from="1491715836961" duration="1656000" />
-      <workItem from="1491717851361" duration="5079000" />
+      <workItem from="1491717851361" duration="6570000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1491553709877</created>
@@ -774,11 +771,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491717859604</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fake Stats Page">
+      <created>1491727892549</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1491727892549</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58836000" />
+    <option name="totallyTimeSpent" value="60327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
@@ -847,7 +851,8 @@
     <MESSAGE value="Base design" />
     <MESSAGE value="Forms" />
     <MESSAGE value="Merge branch 'master' of https://github.com/DuvalCharles/startup-we&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/DuvalCharles/startup-we&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
+    <MESSAGE value="Fake Stats Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fake Stats Page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1012,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SUWE/UserBundle/Form/RegistrationType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1091,14 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1194,22 +1183,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/AnnonceurController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="96" column="53" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1220,20 +1193,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="85">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/AnnonceurController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="96" column="53" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_stats.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        <state relative-caret-position="136">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding>
-            <element signature="e#560#585#0#HTML" expanded="true" />
-            <element signature="e#771#796#0#HTML" expanded="true" />
-            <element signature="e#982#1007#0#HTML" expanded="true" />
+            <element signature="e#622#647#0#HTML" expanded="true" />
+            <element signature="e#833#858#0#HTML" expanded="true" />
+            <element signature="e#1044#1069#0#HTML" expanded="true" />
+            <element signature="e#1255#1280#0#HTML" expanded="true" />
+            <element signature="e#1466#1491#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/dashboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding>
+            <element signature="e#1093#1182#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
