@@ -288,21 +288,6 @@ class User extends BaseUser
         $this->societe = $societe;
     }
 
-    /**
-     * @return \SUWE\SondageBundle\Entity\Sondage[]
-     */
-    public function getAnsweredSondages()
-    {
-        return $this->answeredSondages;
-    }
-
-    /**
-     * @param \SUWE\SondageBundle\Entity\Sondage[] $answeredSondages
-     */
-    public function setAnsweredSondages($answeredSondages)
-    {
-        $this->answeredSondages = $answeredSondages;
-    }
 
     /**
      * @param int $id
@@ -344,6 +329,16 @@ class User extends BaseUser
     public function removeAnsweredSondage(\SUWE\SondageBundle\Entity\Sondage $answeredSondage)
     {
         $this->answeredSondages->removeElement($answeredSondage);
+    }
+
+    /**
+     * Get answeredSondages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnsweredSondages()
+    {
+        return $this->answeredSondages;
     }
 
     /**
