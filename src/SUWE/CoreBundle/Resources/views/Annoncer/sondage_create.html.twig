@@ -88,7 +88,8 @@
                     </select>
                     <hr style="width:50%">
                     {#BINARY#}
-                    <div class="input-group row text-center" v-if="question.type === 'binary'">
+                    <div class="col-12 col-md-8 offset-md-2 input-group row text-center"
+                         v-if="question.type === 'binary'">
                         <label for="">
                             Oui
                             <input type="checkbox">
@@ -254,7 +255,7 @@
 
                                 multipleAndSimpleNodes[0]['name'] = "q-" + questionId + "-response-1";
 
-                                var button = $("<a class='btn btn-primary btn-lg btn-block'>Ajouter une réponse +</a>");
+                                var button = $("<a class='btn btn-primary'>Ajouter une réponse +</a>");
                                 button[0]['id'] = questionId;
                                 button[0].onclick = function () {
                                     var divToAdd = $('#q-' + questionId).find('.input-group')[0];

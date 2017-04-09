@@ -67,6 +67,13 @@ a:hover {
     border: none;
 }
 
+.btn-primary {
+    color: #fff !important;
+    border: none;
+    cursor: pointer !important;
+    background-color: #fedf2f !important;
+}
+
 .red-star {
     color: red;
     position: absolute;
