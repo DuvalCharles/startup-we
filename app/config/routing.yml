@@ -40,4 +40,4 @@ fos_user_registration_confirmed:
     path: /registration/confirmed
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /dashboard
+        path: /

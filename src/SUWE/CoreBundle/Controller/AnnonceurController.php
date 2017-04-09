@@ -28,7 +28,11 @@ class AnnonceurController extends Controller
      */
     public function dashboardAction()
     {
-        return $this->render('SUWECoreBundle:Annoncer:dashboard.html.twig');
+        $user = $this->getUser();
+        $sondages = $user->getCreatedSondages();
+        return $this->render('SUWECoreBundle:Annoncer:dashboard.html.twig', array(
+            'sondages' => $sondages
+        ));
     }
 
     /**
@@ -85,11 +89,15 @@ class AnnonceurController extends Controller
     }
 
     /**
-     * @Route("/sondage/{sondage_id}/stats", name="sondage_stats_annoncer")
+     * @Route("/sondage/{id}/stats", name="sondage_stats_annoncer")
      */
     public
-    function sondageStatsAction()
+    function sondageStatsAction($id)
     {
-        return $this->render('SUWECoreBundle:Annoncer:sondage_stats.html.twig');
+        $sondage = $this->getDoctrine()->getManager()->getRepository('SUWESondageBundle:Sondage')
+            ->find($id);
+        return $this->render('SUWECoreBundle:Annoncer:sondage_stats.html.twig', array(
+            'sondage' => $sondage
+        ));
     }
 }

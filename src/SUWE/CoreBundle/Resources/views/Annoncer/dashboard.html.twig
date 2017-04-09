@@ -1,4 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>Homepage</h1>
+
+    <h1 class="text-center">Liste de mes sondages</h1>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 text-center">
+            {% for sondage in sondages %}
+                <a href="{{ path('sondage_stats_annoncer', {'id': sondage.id}) }}">{{ sondage.title }}</a>
+            {% endfor %}
+            {% if sondages|length == 0 %}
+                <hr>
+                Vous n'avez pas encore créé de sondage<br>
+                <a href="{{ path('sondage_creation_annoncer') }}" class="btn btn-success">Je me lance !</a>
+            {% endif %}
+        </div>
+    </div>
+
 {% endblock %}

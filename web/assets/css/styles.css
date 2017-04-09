@@ -63,8 +63,15 @@ a:hover {
     margin-bottom: 20px;
     cursor: pointer;
     background-color: #409994;
-    color: #fff;
+    color: #fff !important;
     border: none;
+}
+
+.btn-primary {
+    color: #fff !important;
+    border: none;
+    cursor: pointer !important;
+    background-color: #fedf2f !important;
 }
 
 .red-star {
