@@ -71,6 +71,7 @@ class AnnonceurController extends Controller
             foreach ($questionsArr as $question) {
                 $sondage->addQuestion($question[0]);
             }
+            $sondage->setCreator($this->getUser());
             $this->getDoctrine()->getManager()->persist($sondage);
             $this->getDoctrine()->getManager()->flush();
 
