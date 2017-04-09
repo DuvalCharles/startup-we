@@ -35,6 +35,14 @@ h3 {
     height: 40px;
 }
 
+/*ANNOUNCER*/
+
+.isFuckingGone {
+    position: absolute;
+    left: -2000px;
+    transition: all ease-in 2s;
+}
+
 /*FOOTER*/
 
 #footer {

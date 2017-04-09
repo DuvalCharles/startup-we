@@ -45,7 +45,7 @@ class Question
     /**
      * @var Response[]
      *
-     * @ORM\OneToMany(targetEntity="SUWE\SondageBundle\Entity\Response", mappedBy="question")
+     * @ORM\OneToMany(targetEntity="SUWE\SondageBundle\Entity\Response", mappedBy="question", cascade={"persist"})
      */
     private $responses;
 
@@ -149,7 +149,7 @@ class Question
     public function addResponse(\SUWE\SondageBundle\Entity\Response $response)
     {
         $this->responses[] = $response;
-
+        $response->setQuestion($this);
         return $this;
     }
 

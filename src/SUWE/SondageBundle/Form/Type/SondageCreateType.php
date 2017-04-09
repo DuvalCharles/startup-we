@@ -101,6 +101,7 @@ class SondageCreateType extends AbstractType
             'data_class' => 'SUWE\SondageBundle\Entity\Sondage',
             'allow_extra_fields' => true,
             'attr' => [
+                'id' => 'sondage_form',
                 '@submit.prevent' => 'submitForm',
             ]
         ));
