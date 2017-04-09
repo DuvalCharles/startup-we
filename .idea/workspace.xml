@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b20d784b-a8c7-4eb4-83f4-122b5c2da2ca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/ConsumerController.php" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/ConsumerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_create.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/sondage_create.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/sondage.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/sondage.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/SondageBundle/Repository/SondageRepository.php" afterPath="$PROJECT_DIR$/src/SUWE/SondageBundle/Repository/SondageRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/User.php" />
     </list>
     <ignored path="startup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -897,7 +892,7 @@
       <workItem from="1491669498512" duration="9913000" />
       <workItem from="1491685257417" duration="8207000" />
       <workItem from="1491693807971" duration="3000" />
-      <workItem from="1491693897796" duration="26899000" />
+      <workItem from="1491693897796" duration="26932000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1491553709877</created>
@@ -983,11 +978,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491717933219</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Design base">
+      <created>1491729263644</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1491729263644</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61669000" />
+    <option name="totallyTimeSpent" value="61702000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
