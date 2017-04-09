@@ -2,38 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b20d784b-a8c7-4eb4-83f4-122b5c2da2ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/Clelia.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/conversion.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/favicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/header-annonceurs.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/header-utilisateurs.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/logo-small.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/lottery-coins.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/menu-utilisateurs.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/pile-coins.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/images/vanoptic.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/lot.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/loterie.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SUWE/SondageBundle/Entity/Lot.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SUWE/SondageBundle/Repository/LotRepository.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SUWE/UserBundle/EventListener/RegistrationListener.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/ConsumerController.php" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Controller/ConsumerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Annoncer/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/boutique.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/boutique.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/dashboard.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/sondage.html.twig" afterPath="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/sondage.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/SUWE/UserBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/UserBundle/Form/RegistrationType.php" afterPath="$PROJECT_DIR$/src/SUWE/UserBundle/Form/RegistrationType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SUWE/UserBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/SUWE/UserBundle/Resources/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/styles.css" afterPath="$PROJECT_DIR$/web/assets/css/styles.css" />
     </list>
     <ignored path="startup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -111,21 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="59" column="68" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SUWE/UserBundle/Resources/config/services.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -134,9 +95,11 @@
       <file leaf-file-name="register_content.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-              <folding />
+            <state relative-caret-position="68">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -196,14 +159,14 @@
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/boutique.html.twig" />
         <option value="$PROJECT_DIR$/src/SUWE/CoreBundle/Resources/views/Consumer/loterie.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/EventListener/RegistrationListener.php" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/EventListener/RegistrationConfirmedListener.php" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/SUWE/UserBundle/EventListener/RegistrationConfirmListener.php" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       </list>
     </option>
   </component>
@@ -918,7 +881,7 @@
       <workItem from="1491667531567" duration="1946000" />
       <workItem from="1491669498512" duration="9913000" />
       <workItem from="1491685257417" duration="8207000" />
-      <workItem from="1491693807971" duration="16493000" />
+      <workItem from="1491693807971" duration="17334000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1491553709877</created>
@@ -983,11 +946,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491693820893</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Base design">
+      <created>1491713477966</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1491713477966</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51260000" />
+    <option name="totallyTimeSpent" value="52101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
@@ -1397,30 +1367,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="59" column="68" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SUWE/UserBundle/Resources/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SUWE/UserBundle/EventListener/RegistrationConfirmListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -1441,6 +1387,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SUWE/UserBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
           <folding />
         </state>
       </provider>
