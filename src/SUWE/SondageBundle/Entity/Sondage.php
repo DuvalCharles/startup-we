@@ -413,6 +413,8 @@ class Sondage
     {
         $this->creator = $creator;
 
+        $creator->addCreatedSondages($this);
+
         return $this;
     }
 
