@@ -2,24 +2,24 @@
 {% block body %}
     {{ form_start(form) }}
     <div class="row justify-content-space-between">
-        <div class="col-12" :class="{isFuckingGone: !part_1}">
-            <h1>Création de sondage -
+        <div class="col-12 col-md-8 offset-md-2" :class="{isFuckingGone: !part_1}">
+            <h1 class="text-center">Création de sondage -
                 <small>Cible</small>
             </h1>
-            <hr>
+            <hr style="margin-top: 40px;margin-bottom: 40px;">
             <div class="row form-group">
                 <div class="col-12">
                     <label> {{ form_label(form.title) }}</label>
                     {{ form_widget(form.title, {'attr': {'v-model' : 'title', 'maxlength':'50', 'value': null}}) }}
                 </div>
-                <div class="col-6">
+                <div class="col-6" style="margin-top: 20px;">
                     <label> {{ form_label(form.nbQuestions) }}</label>
                     <div class="input-group">
                         <span class="input-group-addon">?</span>
                         {{ form_widget(form.nbQuestions) }}
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6" style="margin-top: 20px;">
                     <label> {{ form_label(form.maxBudget) }}</label>
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <h2>Cible</h2>
+                    <hr style="margin-top: 40px;margin-bottom: 40px;">
                 </div>
                 <div class="col-6">
                     <label> {{ form_label(form.minAge) }}</label>
@@ -55,24 +55,24 @@
                     </a>
                 </div>
                 <div class="col-12 col-sm-4">
-                    <h3>Centre d'intérêt</h3>
+                    <h3 class="">Centre d'intérêt</h3>
                     <ul v-if="hobbiesSelected.length > 0">
                         <li v-for="hobby in hobbiesSelected">${hobby}</li>
                     </ul>
-                    <a class="btn btn-success" data-toggle="modal" data-target="#hobbyModal">
+                    <a class="btn btn-success " data-toggle="modal" data-target="#hobbyModal">
                         Selectionner
                     </a>
                 </div>
 
             </div>
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <div class="form-group">
-                    <a class="btn btn-success" @Click="part_1 = false">Confirmer et Créer les questions</a>
+                    <a class="btn btn-success" @Click="part_1 = false">Confirmer et créer les questions</a>
                 </div>
             </div>
         </div>
-        <div class="col-12" :class="{isFuckingGone: part_1 }">
-            <h1>Création de sondage -
+        <div class="col-12 col-md-8 offset-md-2" :class="{isFuckingGone: part_1 }">
+            <h1 class="text-center">Création de sondage -
                 <small>Questions</small>
             </h1>
             <hr>
@@ -88,7 +88,7 @@
                     </select>
                     <hr style="width:50%">
                     {#BINARY#}
-                    <div class="input-group row" v-if="question.type === 'binary'">
+                    <div class="input-group row text-center" v-if="question.type === 'binary'">
                         <label for="">
                             Oui
                             <input type="checkbox">
@@ -111,7 +111,10 @@
                     <input class="d-none" :id="'q-'+index+'-type'" :name="'q-'+index+'-type'">
                 </div>
             </div>
-            <button type="submit" @Click="submitForm" class="btn btn-lg btn-danger">FUCK YEAH MUTHAFUCKA</button>
+            <div class="text-center">
+                <button type="submit" @Click="submitForm" class="text-center btn btn-success">Valider le formulaire
+                </button>
+            </div>
         </div>
     </div>
 
