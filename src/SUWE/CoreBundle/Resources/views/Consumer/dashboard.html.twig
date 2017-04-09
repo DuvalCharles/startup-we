@@ -1,6 +1,22 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="jumbotron">
-        <h1>Les sondages qui vous correspondent</h1>
+    <h1 class="text-center">Propositions de sondages</h1>
+    <div class="row">
+        <div class="col-12 col-md-6 p-4">
+            <a href="">
+                <img class="img-fluid" style="border:solid 5px #fff;" src="{{ asset('assets/images/vanoptic.png') }}"
+                     alt="">
+            </a>
+        </div>
+        <div class="col-12 col-md-6 p-4">
+            <a href="">
+                <img class="img-fluid" style="border:solid 5px #fff;" src="{{ asset('assets/images/Clelia.png') }}"
+                     alt="">
+            </a>
+        </div>
+        <div class="col-12 text-center">
+            <a class="btn btn-success" href="{{ path('shop_consumer') }}">Accèder à la boutique</a>
+            <a class="btn btn-success" href="{{ path('loterie_consumer') }}">Jouer à la loterie</a>
+        </div>
     </div>
 {% endblock %}

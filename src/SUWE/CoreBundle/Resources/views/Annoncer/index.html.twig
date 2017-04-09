@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="jumbotron">
-        <h1>TIME TO KICK ASSES</h1>
+    <div>
+        <img class="img-fluid" src="{{ asset('assets/images/header-annonceurs.jpg') }}" alt="">
+        <a href="{{ path('fos_user_registration_register', {'annonceur':'true'}) }}" class="btn btn-success">Je
+            m'inscris !</a>
     </div>
 {% endblock %}

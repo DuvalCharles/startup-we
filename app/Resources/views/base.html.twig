@@ -37,31 +37,68 @@
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto text-center">
-                        {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') %}
+                        {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') and app.user.annoncer == false %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('dashboard_consumer') }}">Sondages</a>
+                                <a class="nav-link" href="{{ path('dashboard_consumer') }}"><i
+                                            class="fa fa-stack-exchange" aria-hidden="true"></i>
+                                    Sondages</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('shop_consumer') }}"><i class="fa fa-shopping-cart"
+                                                                                          aria-hidden="true"></i>
+                                    Boutique</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('shop_consumer') }}">Boutique</a>
+                                <a class="nav-link" href="{{ path('loterie_consumer') }}"><i class="fa fa-trophy"
+                                                                                             aria-hidden="true"></i>
+                                    Loterie !</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                                <a class="nav-link" href="{{ path('fos_user_security_logout') }}"><i
+                                            class="fa fa-sign-out" aria-hidden="true"></i>
+                                    Déconnexion({{ app.user.username }})</a>
+                            </li>
+                        {% elseif app.user and ('IS_AUTHENTICATED_REMEMBERED') and app.user.annoncer == true %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('dashboard_consumer') }}">Mes sondages</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('shop_consumer') }}">Créer un sondage</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
+                                <a class="nav-link" href="{{ path('fos_user_security_login') }}"><i class="fa fa-plug"
+                                                                                                    aria-hidden="true"></i>
+                                    Connexion</a>
                             </li>
                             <li class="nav-item">
                                 {% if app.request.get('_route') == "home_annonceur" %}
                                     <a class="nav-link"
-                                       href="{{ path('fos_user_registration_register', {'annonceur':'true'}) }}">Inscription</a>
+                                       href="{{ path('fos_user_registration_register', {'annonceur':'true'}) }}"><i
+                                                class="fa fa-sign-in" aria-hidden="true"></i> Inscription</a>
                                 {% else %}
                                     <a class="nav-link"
-                                       href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                                       href="{{ path('fos_user_registration_register') }}"><i class="fa fa-sign-in"
+                                                                                              aria-hidden="true"></i>
+                                        Inscription</a>
                                 {% endif %}
                             </li>
                         {% endif %}
                     </ul>
+
+                    {% if app.user and ('IS_AUTHENTICATED_REMEMBERED') and app.user.annoncer == false %}
+                        <div class="hidden-sm-down" style="float:right;margin-top:6px;">
+                            {{ app.user.totalPoints }} <img
+                                    title="Check'Coins"
+                                    style="width:20px;"
+                                    src="{{ asset('assets/images/pile-coins.png') }}">
+                            {{ app.user.nbJetons }} <img
+                                    title="Jetons de loterie"
+                                    style="width:20px;"
+                                    src="{{ asset('assets/images/lottery-coins.png') }}">
+                        </div>
+                    {% endif %}
                 </div>
             </nav>
         </div>
@@ -70,7 +107,7 @@
 <div class="container-fluid">
     {#HEADER#}
     <div class="row">
-        <div class="col-10 offset-1 col-md-8 offset-md-2 p-0">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 p-0" style="background-color: #f2f2f2;">
             {% block body %}
 
 

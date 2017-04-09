@@ -111,6 +111,16 @@ class User extends BaseUser
     private $createdSondages;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->totalPoints = 25;
+        $this->nbJetons = 0;
+    }
+
+    /**
      * @return mixed
      */
     public function getImageUser()
