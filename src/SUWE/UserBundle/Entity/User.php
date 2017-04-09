@@ -288,37 +288,6 @@ class User extends BaseUser
         $this->societe = $societe;
     }
 
-    /**
-     * @return \SUWE\SondageBundle\Entity\Sondage[]
-     */
-    public function getAnsweredSondages()
-    {
-        return $this->answeredSondages;
-    }
-
-    /**
-     * @param \SUWE\SondageBundle\Entity\Sondage[] $answeredSondages
-     */
-    public function setAnsweredSondages($answeredSondages)
-    {
-        $this->answeredSondages = $answeredSondages;
-    }
-
-    /**
-     * @return \SUWE\SondageBundle\Entity\Sondage[]
-     */
-    public function getCreatedSondages()
-    {
-        return $this->createdSondages;
-    }
-
-    /**
-     * @param \SUWE\SondageBundle\Entity\Sondage[] $createdSondages
-     */
-    public function setCreatedSondages($createdSondages)
-    {
-        $this->createdSondages = $createdSondages;
-    }
 
     /**
      * @param int $id
@@ -326,5 +295,83 @@ class User extends BaseUser
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * Get annoncer
+     *
+     * @return boolean
+     */
+    public function getAnnoncer()
+    {
+        return $this->annoncer;
+    }
+
+    /**
+     * Add answeredSondage
+     *
+     * @param \SUWE\SondageBundle\Entity\Sondage $answeredSondage
+     *
+     * @return User
+     */
+    public function addAnsweredSondage(\SUWE\SondageBundle\Entity\Sondage $answeredSondage)
+    {
+        $this->answeredSondages[] = $answeredSondage;
+
+        return $this;
+    }
+
+    /**
+     * Remove answeredSondage
+     *
+     * @param \SUWE\SondageBundle\Entity\Sondage $answeredSondage
+     */
+    public function removeAnsweredSondage(\SUWE\SondageBundle\Entity\Sondage $answeredSondage)
+    {
+        $this->answeredSondages->removeElement($answeredSondage);
+    }
+
+    /**
+     * Get answeredSondages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnsweredSondages()
+    {
+        return $this->answeredSondages;
+    }
+
+    /**
+     * Add createdSondage
+     *
+     * @param \SUWE\SondageBundle\Entity\Sondage $createdSondage
+     *
+     * @return User
+     */
+    public function addCreatedSondage(\SUWE\SondageBundle\Entity\Sondage $createdSondage)
+    {
+        $this->createdSondages[] = $createdSondage;
+
+        return $this;
+    }
+
+    /**
+     * Remove createdSondage
+     *
+     * @param \SUWE\SondageBundle\Entity\Sondage $createdSondage
+     */
+    public function removeCreatedSondage(\SUWE\SondageBundle\Entity\Sondage $createdSondage)
+    {
+        $this->createdSondages->removeElement($createdSondage);
+    }
+
+    /**
+     * Get createdSondages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCreatedSondages()
+    {
+        return $this->createdSondages;
     }
 }

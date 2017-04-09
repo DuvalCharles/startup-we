@@ -1,4 +1,117 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>TIME TO KICK ASSES</h1>
+    <form method="post" name="sondage_answer" id="sondage_answer">
+        <div class="row justify-content-space-between">
+            <div class="col-12">
+                <h1>Sondage -
+                    <small>${sondage.title}</small>
+                </h1>
+                <div class="row form-group" v-for="(question,index) in sondage.questions">
+                    <div class="col-12">
+                        <h3>
+                            <small>n°${index} -</small>
+                            ${question.title}
+                        </h3>
+                        <template v-if="question.type === 'Binaire'" class="text-center">
+                            <label :for="'Oui'+question.title">
+                                Oui
+                                <input type="checkbox" :name="'Oui'+question.title" class="form-control">
+                            </label>
+                            <label :for="'Non'+question.title">
+                                Non
+                                <input type="checkbox" :name="'Non'+question.title" class="form-control">
+                            </label>
+                        </template>
+                        <template v-if="question.type === 'Réponses Mutliples'" class="text-center">
+                            <div class="input-group">
+                                <div class="row">
+                                    <div class="col-6" v-for="response in question.responses">
+                                        <label :for="response.title">
+                                            ${response.title}
+                                            <input type="checkbox" :name="response.title">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template v-if="question.type === 'Réponses Unique'" class="text-center">
+                            <div class="input-group">
+                                <div class="row">
+                                    <div class="col-6" v-for="response in question.responses">
+                                        <label :for="question.title">
+                                            ${response.title}
+                                            <input type="radio" :name="question.title">
+                                        </label>
+                                    </div>
+                                </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="col-6 offset-3">
+                    <a class="btn btn-block btn-success" @Click="submitBullshit">Terminer le sondage</a>
+                </div>
+            </div>
+        </div>
+        {#Modal hobbies#}
+        <div class="modal fade" id="promoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="text" class="d-none" name="done" id="done">
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var sondageAnswer = new Vue({
+            delimiters: ['${', '}'],
+            el: '#sondage_answer',
+            data: {
+                sondage: {
+                    title: "{{ sondage.title|escape('js') }}",
+                    questions: [
+                        {% for question in sondage.questions %}
+                        {
+                            id: {{ question.id }},
+                            title: "{{ question.title|escape('js') }}",
+                            type: "{{ question.type|escape('js') }}",
+                            responses: [
+                                {% for response in question.responses %}
+                                {
+                                    id: {{ response.id }},
+                                    title: "{{ response.title|escape('js') }}"
+                                },
+                                {% endfor %}
+                            ]
+                        },
+                        {% endfor %}
+                    ]
+                }
+            },
+            methods: {
+                submitBullshit: function () {
+                    $('#promoModal').modal('show');
+                    console.log($('#done')[0].value = "done");
+                    console.log($('#done')[0]);
+                    $('#promoModal').on('hidden.bs.modal', function () {
+                        $('form').submit();
+                        $('#done')[0].value = "done";
+                    })
+                }
+            }
+
+        })
+    </script>
 {% endblock %}

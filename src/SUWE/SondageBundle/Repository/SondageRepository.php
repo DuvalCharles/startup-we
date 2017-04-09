@@ -10,4 +10,17 @@ namespace SUWE\SondageBundle\Repository;
  */
 class SondageRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findSondage($sondageId)
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.id = :id')
+            ->setParameter('id', $sondageId)
+            ->leftJoin('s.questions', 'q')
+            ->addSelect('q')
+            ->leftJoin('q.responses', 'r')
+            ->addSelect('r')
+            ->getQuery()
+            ->getResult();
+    }
 }
