@@ -7,32 +7,53 @@
     <div class="col-12 col-md-8 offset-md-2">
         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-        <div class="form-group">
-            {{ form_label(form.username, "Nom: ") }}
-            {{ form_widget(form.username, {'attr' : {'class': 'form-control'}}) }}
+        <div class="form-group row" style="margin-top: 20px;">
+            <div class="col-12 col-md-4">
+                {{ form_label(form.username, "Pseudonyme: ") }}
+            </div>
+            <div class="col-12 col-md-8">
+                {{ form_widget(form.username, {'attr' : {'class': 'form-control'}}) }}<span class="red-star">*</span>
+            </div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(form.email, "Email: ") }}
-            {{ form_widget(form.email, {'attr' : {'class': 'form-control'}}) }}
+        <div class="form-group row">
+            <div class="col-12 col-md-4">
+                {{ form_label(form.email, "Email: ") }}
+            </div>
+            <div class="col-12 col-md-8">
+                {{ form_widget(form.email, {'attr' : {'class': 'form-control'}}) }}<span class="red-star">*</span>
+            </div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(form.plainPassword.first, "Mot de passe: ") }}
-            {{ form_widget(form.plainPassword.first, {'attr' : {'class': 'form-control'}}) }}
+        <div class="form-group row">
+            <div class="col-12 col-md-4">
+                {{ form_label(form.plainPassword.first, "Mot de passe: ") }}
+            </div>
+            <div class="col-12 col-md-8">
+                {{ form_widget(form.plainPassword.first, {'attr' : {'class': 'form-control'}}) }}<span class="red-star">*</span>
+            </div>
         </div>
 
-        <div class="form-group">
-            {{ form_label(form.plainPassword.second, "Répéter le mot de passe: ") }}
-            {{ form_widget(form.plainPassword.second, {'attr' : {'class': 'form-control'}}) }}
+        <div class="form-group row">
+            <div class="col-12 col-md-4">
+                {{ form_label(form.plainPassword.second, "Répéter le mot de passe: ") }}
+            </div>
+            <div class="col-12 col-md-8">
+                {{ form_widget(form.plainPassword.second, {'attr' : {'class': 'form-control'}}) }}<span
+                        class="red-star">*</span>
+            </div>
         </div>
-
+        <hr style="margin-top: 40px;margin-bottom: 40px;">
         {% set queryParameters = app.request.query.all %}
 
         {% if queryParameters.annonceur is defined %}
-            <div class="form-group">
-                {{ form_label(form.societe, "Société: ") }}
-                {{ form_widget(form.societe, {'attr' : {'class': 'form-control'}}) }}
+            <div class="form-group row">
+                <div class="col-12 col-md-4">
+                    {{ form_label(form.societe, "Société: ") }}
+                </div>
+                <div class="col-12 col-md-8">
+                    {{ form_widget(form.societe, {'attr' : {'class': 'form-control'}}) }}
+                </div>
             </div>
             <div class="form-group d-none">
                 {{ form_label(form.annoncer, "Annoceur ?: ") }}
@@ -43,55 +64,90 @@
                 {{ form_label(form.annoncer, "Annoceur ?: ") }}
                 {{ form_widget(form.annoncer, {'attr' : {'class': ''}}) }}
             </div>
-            <div class="form-group">
-                {{ form_label(form.age, "Age: ") }}
-                {{ form_widget(form.age, {'attr' : {'class': 'form-control'}}) }}
-            </div>
-            Genre :
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="cbox1" value="checkbox1">
-                    M
-                </label>
-
-                <input type="checkbox" id="cbox2" value="checkbox1">
-                <label for="cbox2">
-                    F
-                </label>
-            </div>
-            <div class="form-group">
-                {{ form_label(form.departement, "Département: ") }}
-                {{ form_widget(form.departement, {'attr' : {'class': 'form-control'}}) }}
+            <div class="form-group row">
+                <div class="col-12 col-md-4">
+                    {{ form_label(form.age, "Age: ") }}
+                </div>
+                <div class="col-12 col-md-8">
+                    {{ form_widget(form.age, {'attr' : {'class': 'form-control'}}) }}
+                </div>
             </div>
 
-            <div class="form-group">
-                {{ form_label(form.statusPro, "Situation professionnelle: ") }}
-                {{ form_widget(form.statusPro, {'attr' : {'class': 'form-control', 'placeholder':'Etudiant'}}) }}
+            <div class="form-group row">
+                <div class="col-12 col-md-4">
+                    <label for="">Genre :</label>
+                </div>
+                <div class="col-12 col-md-8">
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Masculin
+                    </label>
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Féminin
+                    </label>
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Autre
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12 col-md-4">
+                    {{ form_label(form.departement, "Département: ") }}
+                </div>
+                <div class="col-12 col-md-8">
+                    {{ form_widget(form.departement, {'attr' : {'class': 'form-control'}}) }}
+                </div>
             </div>
 
-            Centres d'intérêts :
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="cbox1" value="checkbox1">
-                    Hobby 1
-                </label>
+            <div class="form-group row">
+                <div class="col-12 col-md-4">
+                    {{ form_label(form.statusPro, "Situation professionnelle: ") }}
+                </div>
+                <div class="col-12 col-md-8">
+                    {{ form_widget(form.statusPro, {'attr' : {'class': 'form-control', 'placeholder':'Etudiant'}}) }}
+                </div>
+            </div>
 
-                <input type="checkbox" id="cbox2" value="checkbox1">
-                <label for="cbox2">
-                    Hobby 2
-                </label>
+            <div class="form-group row">
+                <div class="col-12 col-md-4">
+                    <label for="">Centres d'intérêts :</label>
+                </div>
+                <div class="col-12 col-md-8">
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Sport
+                    </label>
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Shopping
+                    </label>
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Voyage
+                    </label>
+                    <label for="">
+                        <input type="checkbox" id="cbox1" value="checkbox1">
+                        Technologies
+                    </label>
+                </div>
             </div>
         {% endif %}
 
-        <div class="form-group">
-            {{ form_label(form.imageUser, "Image: ") }}
-            {{ form_widget(form.imageUser, {'attr' : {'class': 'form-control'}}) }}
+        <div class="form-group row">
+            <div class="col-12 col-md-4">
+                {{ form_label(form.imageUser, "Image: ") }}
+            </div>
+            <div class="col-12 col-md-8">
+                {{ form_widget(form.imageUser, {'attr' : {'class': 'form-control'}}) }}
+            </div>
         </div>
 
         <div class="d-none">{{ form_rest(form) }}</div>
 
         <div class="text-center">
-            <input class="btn btn-succes" type="submit" value="Valider"/>
+            <button class="btn btn-success" type="submit">Valider</button>
         </div>
         {{ form_end(form) }}
 

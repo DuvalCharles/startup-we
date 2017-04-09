@@ -40,4 +40,52 @@ class ConsumerController extends Controller
     {
         return $this->render('SUWECoreBundle:Consumer:sondage.html.twig');
     }
+
+    /**
+     * @Route("/loterie", name="loterie_consumer")
+     */
+    public function loterieAction()
+    {
+        $lot = null;
+        $lots = $this->getEm()->getRepository('SUWESondageBundle:Lot')
+            ->findAvailableLots();
+        if (count($lots) > 0) {
+            $lot = $lots[0];
+        }
+        return $this->render('SUWECoreBundle:Consumer:loterie.html.twig', array(
+            'lot' => $lot
+        ));
+    }
+
+    /**
+     * @Route("/lot/{id}/{userId}", name="lot_code")
+     */
+    public function lotAction($id, $userId)
+    {
+        $lot = $this->getEm()->getRepository('SUWESondageBundle:Lot')
+            ->find($id);
+        $lot->setIsAvailable(false);
+
+        $user = $this->getEm()->getRepository('SUWEUserBundle:User')
+            ->find($userId);
+
+        $user->setNbJetons($user->getNbJetons() - 1);
+        
+        $this->getEm()->persist($lot);
+        $this->getEm()->persist($user);
+
+        $this->getEm()->flush();
+
+        return $this->render('SUWECoreBundle:Consumer:lot.html.twig', array(
+            'lot' => $lot
+        ));
+    }
+
+    /**
+     * @return object
+     */
+    private function getEm()
+    {
+        return $this->getDoctrine()->getManager();
+    }
 }

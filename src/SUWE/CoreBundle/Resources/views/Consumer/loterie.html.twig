@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="text-center">
+        <h1>Tentez votre chance à la loterie<br>pour gagner encore plus de cadeaux !</h1>
+        <h3 id="cout">Coût : 1 jeton de loterie</h3>
+        {% if app.user.nbJetons > 0 %}
+            {% if lot != null %}
+                <div id="win" class="col-12 text-center d-none">
+                    <h1 style="color: #fedf2f;">Bravo, Vous avez gagné !!!</h1>
+                    <h1 style="color: #fedf2f;">{{ lot.title }}</h1>
+                    <a href="{{ path('lot_code', {'id': lot.id, 'userId': app.user.id}) }}" class="btn btn-success">Cliquez
+                        pour
+                        récupérer votre
+                        lot</a>
+                </div>
+                <div class="col-2 offset-5">
+                    <div id="roulette" class="d-none contener_loader_18" style="padding-left:30px;">
+                        <div class="rond_sup">
+                            <div class="rond_mil">
+                                <div class="rond_petit">
+                                    <div class="rond_mini"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="play" onclick="go()" class="btn btn-success" href="">Jouer !</button>
+            {% else %}
+                <h3>Il n'y a plus de lot à gagner pour aujourd'hui</h3>
+            {% endif %}
+        {% else %}
+            <p style="margin-top: 30px;">Vous n'avez pas assez de jetons pour jouer :-(</p>
+            <a href="{{ path('dashboard_consumer') }}" class="btn btn-success">Participer à des sondages pour gagner
+                plus de jetons</a>
+        {% endif %}
+    </div>
+
+
+    <script>
+        var result = function () {
+            $('#roulette').addClass('d-none');
+            $('#win').removeClass('d-none');
+        };
+        function go() {
+            $('#play').addClass('d-none');
+            $('#cout').addClass('d-none');
+            $('#roulette').removeClass('d-none');
+            setTimeout(result, 3000);
+        }
+    </script>
+{% endblock %}

@@ -5,8 +5,3 @@ services:
         arguments:
             - SUWE\UserBundle\Entity\User
 
-    suwe.core_bundle.form.registration:
-        class: SUWE\UserBundle\Form\RegistrationType
-        arguments: ["@request_stack", "@suwe.doctrine_entity_repository.user"]
-        tags:
-            - { name: form.type, alias: suwe_user_registration }

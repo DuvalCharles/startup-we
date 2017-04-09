@@ -38,8 +38,10 @@ class RegistrationType extends AbstractType
             ])
             ->add('statusPro', ChoiceType::class, array(
                 'choices' => array(
-                    'Sans emploi' => 'Sans emploi',
-                    'Salarié' => 'Salarié'
+                    'Retraité' => 'Retraité',
+                    'Entrepreneur' => 'Entrepreneur',
+                    'Salarié' => 'Salarié',
+                    'Sans emploi' => 'Sans emploi'
                 ),
                 'required' => false,
                 'placeholder' => 'Etudiant'
