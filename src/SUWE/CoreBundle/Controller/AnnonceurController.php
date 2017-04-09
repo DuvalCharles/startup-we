@@ -82,7 +82,6 @@ class AnnonceurController extends Controller
         }
 
 
-        dump($questionsArr);
         return $this->render('SUWECoreBundle:Annoncer:sondage_create.html.twig', [
             'form' => $form->createView()
         ]);

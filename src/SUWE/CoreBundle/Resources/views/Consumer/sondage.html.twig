@@ -2,14 +2,15 @@
 {% block body %}
     <form method="post" name="sondage_answer" id="sondage_answer">
         <div class="row justify-content-space-between">
-            <div class="col-12">
-                <h1>Sondage -
+            <div class="col-12 col-md-8 offset-md-2">
+                <h1 class="text-center">Sondage -
                     <small>${sondage.title}</small>
                 </h1>
+                <hr>
                 <div class="row form-group" v-for="(question,index) in sondage.questions">
                     <div class="col-12">
                         <h3>
-                            <small>n°${index} -</small>
+                            <small>n°${index + 1} -</small>
                             ${question.title}
                         </h3>
                         <template v-if="question.type === 'Binaire'" class="text-center">
@@ -57,9 +58,10 @@
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-
+                    <div class="modal-body p-0">
+                        <div class="row" style="width:470px;">
+                            <img src="{{ asset('assets/images/dailygourmand.jpg') }}" style="margin-left: 29px;"
+                                 class="" alt="">
                         </div>
                     </div>
                     <div class="modal-footer">

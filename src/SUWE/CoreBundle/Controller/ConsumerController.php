@@ -14,7 +14,8 @@ class ConsumerController extends Controller
     public function indexAction()
     {
         $user = $this->getUser();
-        if ($user && !$user->isAnnoncer()) return $this->redirect($this->generateUrl('dashboard_consumer'));
+        $this->checkIfUserIsConsumer($user);
+
         return $this->render('SUWECoreBundle:Consumer:index.html.twig');
     }
 
@@ -43,7 +44,6 @@ class ConsumerController extends Controller
         if (!$user) return $this->redirect($this->generateUrl('dashboard_consumer'));
         if (count($user->getAnsweredSondages()) > 0) return $this->redirect($this->generateUrl('dashboard_consumer'));
         $sondage = $this->getEm()->getRepository('SUWESondageBundle:Sondage')->findSondage($sondage_id);
-        dump($request->request->get('done'));
         if ($request->request->get('done') === "done") {
             $user->setTotalPoints($user->getTotalPoints() + 25);
             $user->setNbJetons($user->getNbJetons() + 1);
@@ -95,6 +95,11 @@ class ConsumerController extends Controller
         return $this->render('SUWECoreBundle:Consumer:lot.html.twig', array(
             'lot' => $lot
         ));
+    }
+
+    private function checkIfUserIsConsumer($user)
+    {
+        if ($user && $user->getAnnoncer()) return $this->redirect($this->generateUrl('home_annonceur'));
     }
 
     /**
